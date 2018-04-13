@@ -31,17 +31,6 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = findViewById(R.id.editText);
         timeArray.add(timeStamp);
         editText.setText(timeStamp);
-    }
-
-    public void doButton1(View view){
-
-        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS").format(new Date()) + "-1";
-        EditText editText = findViewById(R.id.editText);
-        timeArray.add(timeStamp);
-        editText.setText(timeStamp);
-    }
-
-    public void recordData(View view){
 
         new Thread(new Runnable(){
             @Override
@@ -61,5 +50,53 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
     }
+
+    public void doButton1(View view){
+
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS").format(new Date()) + "-1";
+        EditText editText = findViewById(R.id.editText);
+        timeArray.add(timeStamp);
+        editText.setText(timeStamp);
+
+        new Thread(new Runnable(){
+            @Override
+            public void run() {
+                try {
+                    String dataString = TextUtils.join(", ", timeArray);
+                    URL url = new URL(myURL + dataString);
+                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("GET");
+                    int status = con.getResponseCode();
+                    con.disconnect();
+                    timeArray.clear();
+                }
+                catch (Exception ex) {
+                    int placeholder = 1;
+                }
+            }
+        }).start();
+    }
+
+    /*
+    public void recordData(View view){
+
+        new Thread(new Runnable(){
+            @Override
+            public void run() {
+                try {
+                    String dataString = TextUtils.join(", ", timeArray);
+                    URL url = new URL(myURL + dataString);
+                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("GET");
+                    int status = con.getResponseCode();
+                    con.disconnect();
+                    timeArray.clear();
+                }
+                catch (Exception ex) {
+                    int placeholder = 1;
+                }
+            }
+        }).start();
+    } */
 
 }
