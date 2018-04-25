@@ -16,7 +16,8 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList timeArray = new ArrayList();
-    String myURL = "http://52.87.117.189:8890/?data=";
+    //String myURL = "http://52.87.117.189:8890/?data="; // spoken aws machine
+    String myURL = "http://18.208.37.82:8890/?data="; //personal aws machine
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
