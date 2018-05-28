@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList timeArray = new ArrayList();
     String myURL = "http://www.twobuttons.org:8890/?data="; //personal aws machine
+    String user_id = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +38,14 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable(){
             @Override
             public void run() {
+                String dataString;
                 try {
-                    String dataString = timeStamp + "-" + info;
+                    if (info.length() > 0) {
+                        dataString = timeStamp + "-" + info + "-" + user_id;
+                    }
+                    else {
+                        dataString = timeStamp + "-" + "None" + "-" + user_id;
+                    }
                     URL url = new URL(myURL + dataString);
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     con.setRequestMethod("GET");
@@ -66,8 +73,14 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable(){
             @Override
             public void run() {
+                String dataString;
                 try {
-                    String dataString = timeStamp + "-" + info;
+                    if (info.length() > 0) {
+                        dataString = timeStamp + "-" + info + "-" + user_id;
+                    }
+                    else {
+                        dataString = timeStamp + "-" + "None" + "-" + user_id;
+                    }
                     URL url = new URL(myURL + dataString);
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     con.setRequestMethod("GET");
