@@ -1,61 +1,18 @@
 package com.example.marke.buttontest;
 
-import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-
-import java.io.BufferedInputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
-public class MainActivity extends AppCompatActivity {
-
-    String myURL = "http://www.twobuttons.org/?data=";
-    //String user_id = "1";
-    public static final String UsernameKey = "UsernameKey";
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
-    public void loginButton(View view) {
-
-        /*
-        Intent intent = new Intent(this, Main2Activity.class);
-        EditText editText = findViewById(R.id.editTextUserName);
-        String username = editText.getText().toString();
-        intent.putExtra( UsernameKey, username);
-        startActivity(intent); */
-
-        URL url = new URL("http://www.android.com/");
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        try {
-            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-            readStream(in);
-        } finally {
-            urlConnection.disconnect();
-        }
-
-        Intent intent = new Intent(this, Main2Activity.class);
-
-        intent.putExtra( UsernameKey, username);
-        startActivity(intent);
-    }
-}
-
- /*
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import android.content.Intent;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class Main2Activity extends AppCompatActivity {
 
     String myURL = "http://www.twobuttons.org:8890/?data="; //personal aws machine
     String user_id = "1";
@@ -63,8 +20,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+        Intent intent = getIntent();
+        String username = intent.getStringExtra(MainActivity.UsernameKey);
+        EditText editText = findViewById(R.id.editTextInfo);
+        editText.setText(username);
     }
 
     public void sendData(String buttonCode) {
@@ -73,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         EditText timeStampBox = findViewById(R.id.editText);
         timeStampBox.setText(timeStamp);
 
-        EditText infoBox = findViewById(R.id.editText2);
+        EditText infoBox = findViewById(R.id.editTextInfo);
         final String info = String.valueOf(infoBox.getText());
 
         new Thread(new Runnable() {
@@ -106,4 +68,4 @@ public class MainActivity extends AppCompatActivity {
         sendData("-1");
     }
 }
-*/
+
