@@ -10,12 +10,11 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import android.content.Intent;
-import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
 
     String myURL = "http://www.twobuttons.org:8890/?data="; //personal aws machine
-    String user_id = "1";
+    String user_id = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +23,9 @@ public class Main2Activity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         Intent intent = getIntent();
-        String username = intent.getStringExtra(MainActivity.UsernameKey);
-        EditText editText = findViewById(R.id.editTextInfo);
-        editText.setText(username);
+        user_id = intent.getStringExtra(MainActivity.UserKey);
+        //EditText editText = findViewById(R.id.editTextInfo);
+        //editText.setText(user_id);
     }
 
     public void sendData(String buttonCode) {

@@ -56,4 +56,13 @@
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:layout_editor_absoluteX="27dp" />
+
+    <TextView
+        android:id="@+id/response"
+        android:layout_width="344dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        tools:layout_editor_absoluteX="46dp" />
 </android.support.constraint.ConstraintLayout>
