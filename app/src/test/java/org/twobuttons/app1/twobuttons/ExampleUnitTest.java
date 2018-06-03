@@ -1,4 +1,4 @@
-package com.example.marke.buttontest;
+package org.twobuttons.app1.twobuttons;
 
 import org.junit.Test;
 

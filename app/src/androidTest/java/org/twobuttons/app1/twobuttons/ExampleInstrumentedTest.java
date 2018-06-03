@@ -1,4 +1,4 @@
-package com.example.marke.buttontest;
+package org.twobuttons.app1.twobuttons;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
