@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">buttonTest</string>
+    <string name="app_name">Two Buttons</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Tag</string>
 </resources>
