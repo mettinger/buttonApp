@@ -1,4 +1,5 @@
 package com.example.marke.buttontest;
+//package org.twobuttons.app1;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -8,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.marke.buttontest.Main2Activity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -82,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
         } catch (Exception e) {
-            Log.e(LOG_TAG, "Error in GetData", e);
+            //Log.e(LOG_TAG, "Error in GetData", e);
+            int placeholder = 1;
         }
         return DataInputStream;
 
@@ -103,19 +107,23 @@ public class MainActivity extends AppCompatActivity {
             }
 
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Error in ConvertStreamToString", e);
+            //Log.e(LOG_TAG, "Error in ConvertStreamToString", e);
+            int placeholder = 1;
         } catch (Exception e) {
-            Log.e(LOG_TAG, "Error in ConvertStreamToString", e);
+            //Log.e(LOG_TAG, "Error in ConvertStreamToString", e);
+            int placeholder = 1;
         } finally {
 
             try {
                 stream.close();
 
             } catch (IOException e) {
-                Log.e(LOG_TAG, "Error in ConvertStreamToString", e);
+                //Log.e(LOG_TAG, "Error in ConvertStreamToString", e);
+                int placeholder = 1;
 
             } catch (Exception e) {
-                Log.e(LOG_TAG, "Error in ConvertStreamToString", e);
+                //Log.e(LOG_TAG, "Error in ConvertStreamToString", e);
+                int placeholder = 1;
             }
         }
         return response.toString();
@@ -142,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
             InputStream is = null;
             String URL = arg[0];
-            Log.d(LOG_TAG, "URL: " + URL);
+            //Log.d(LOG_TAG, "URL: " + URL);
             String res = "";
 
             is = ByGetMethod(URL);
@@ -161,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
             if (result.equals("Username or Password Error...")) {
                 DisplayMessage(result);
             }
-            Log.d(LOG_TAG, "Result: " + result);
+            //Log.d(LOG_TAG, "Result: " + result);
         }
     }
 
