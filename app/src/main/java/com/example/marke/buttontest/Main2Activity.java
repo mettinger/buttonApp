@@ -10,6 +10,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import android.content.Intent;
+import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -31,7 +32,7 @@ public class Main2Activity extends AppCompatActivity {
     public void sendData(String buttonCode) {
 
         final String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS").format(new Date()) + buttonCode;
-        EditText timeStampBox = findViewById(R.id.editText);
+        TextView timeStampBox = findViewById(R.id.textView_timestamp);
         timeStampBox.setText(timeStamp);
 
         EditText infoBox = findViewById(R.id.editTextInfo);
