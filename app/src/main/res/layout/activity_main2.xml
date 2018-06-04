@@ -17,6 +17,8 @@
         android:layout_marginTop="8dp"
         android:onClick="doButton0"
         android:text="0"
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextInfo" />
@@ -31,6 +33,8 @@
         android:layout_marginTop="8dp"
         android:onClick="doButton1"
         android:text="1"
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextInfo" />
