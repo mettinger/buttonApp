@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-//import org.twobuttons.app1.twobuttons.Main2Activity;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
