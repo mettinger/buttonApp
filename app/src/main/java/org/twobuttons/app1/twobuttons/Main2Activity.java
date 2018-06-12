@@ -4,6 +4,7 @@ import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -22,6 +23,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         Intent intent = getIntent();
         user_id = intent.getStringExtra(MainActivity.UserKey);
@@ -31,7 +33,9 @@ public class Main2Activity extends AppCompatActivity {
 
     public void sendData(String buttonCode) {
 
-        final String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS").format(new Date()) + buttonCode;
+        final String delimiter = "---";
+
+        final String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS").format(new Date()) + delimiter + buttonCode;
         TextView timeStampBox = findViewById(R.id.textView_timestamp);
         timeStampBox.setText(timeStamp);
 
@@ -44,9 +48,9 @@ public class Main2Activity extends AppCompatActivity {
                 String dataString;
                 try {
                     if (info.length() > 0) {
-                        dataString = timeStamp + "-" + info + "-" + user_id;
+                        dataString = timeStamp + delimiter + info + delimiter + user_id;
                     } else {
-                        dataString = timeStamp + "-" + "None" + "-" + user_id;
+                        dataString = timeStamp + delimiter + "None" + delimiter + user_id;
                     }
                     URL url = new URL(myURL + dataString);
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -61,11 +65,11 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public void doButton0(View view) {
-        sendData("-0");
+        sendData("0");
     }
 
     public void doButton1(View view) {
-        sendData("-1");
+        sendData("1");
     }
 }
 
